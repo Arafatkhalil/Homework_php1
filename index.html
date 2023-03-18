@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Split a String into Words</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+        function splitStringIntoWords(str) {
+            return str.split(" ");
+        }
+
+        function splitString() {
+            let inputString = document.getElementById("inputString").value;
+            let wordsArray = splitStringIntoWords(inputString);
+            document.getElementById("outputWords").innerHTML = wordsArray.join(", ");
+        }
+    </script>
+</head>
+
+<body>
+    <h2>Split a String into Words</h2>
+    <p>Enter a string:</p>
+    <input type="text" id="inputString" placeholder="Type your string here...">
+    <button onclick="splitString()">Split</button>
+    <p>The words in the string are:</p>
+    <p id="outputWords"></p>
+</body>
+
+</html>
