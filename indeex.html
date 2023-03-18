@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Anagram Checker</title>
+</head>
+
+<body>
+    <label >Enter string 1:</label>
+    <input type="text" id="string1" name="string1"><br><br>
+
+    <label >Enter string 2:</label>
+    <input type="text" id="string2" name="string2"><br><br>
+
+    <button onclick="check()">Check string</button><br><br>
+
+    <p id="result"></p>
+
+    <script>
+        function check() {
+            let string1 = document.getElementById("string1").value;
+            let string2 = document.getElementById("string2").value;
+
+            if (checkAnagram(string1, string2)) {
+                document.getElementById("result").innerHTML = "The two strings are anagrams.";
+            } else {
+                document.getElementById("result").innerHTML = "The two strings are not anagrams.";
+            }
+        }
+
+        function checkAnagram(str1, str2) {
+            // remove any non-alphabetic characters and convert to lowercase
+            str1 = str1.replace(/[^a-zA-Z]/g, '').toLowerCase();
+            str2 = str2.replace(/[^a-zA-Z]/g, '').toLowerCase();
+
+            // check if the two strings have the same length
+            if (str1.length !== str2.length) {
+                return false;
+            }
+
+            // sort the characters of the two strings and compare them
+            return str1.split('').sort().join('') === str2.split('').sort().join('');
+        }
+    </script>
+</body>
+
+</html>
